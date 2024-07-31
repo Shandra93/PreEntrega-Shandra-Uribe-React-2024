@@ -1,28 +1,20 @@
 import './App.css'
-import TituloComponente from './components/TituloComponente'
+import NavBar from './components/NavBar'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const misEstilos = {
-    color:'#887766', 
-    fontFamily:'monospace'
+    color: '#887766', 
+    fontFamily: 'monospace',
+    textAlign: 'center',
+    marginTop: '20px'
   }
 
-
   return (
-    <>
-      <h1 style = {misEstilos}> Hola React </h1>
-      {/* Instanciar componente */}
-      <TituloComponente texto = 'Tetris'/>
-      <p className='lorem'>
-        Lorem ipsum dolor sit amet consectetur 
-        adipisicing elit. Alias nostrum nesciunt 
-        minus ab dicta pariatur, aspernatur, 
-        quibusdam voluptatum culpa, doloribus 
-        temporibus! Exercitationem quidem 
-        repellendus minima! Perspiciatis 
-        cumque repellat sunt nisi!
-      </p>
-    </>
+    <div className="container">
+      <h1 style={misEstilos}>Welcome to my shop</h1>
+      <NavBar />
+    </div>
   )
 }
 
