@@ -12,7 +12,7 @@ function App() {
     <>
       <h1 style = {misEstilos}> Hola React </h1>
       {/* Instanciar componente */}
-      <TituloComponente/>
+      <TituloComponente texto = 'Tetris'/>
       <p className='lorem'>
         Lorem ipsum dolor sit amet consectetur 
         adipisicing elit. Alias nostrum nesciunt 

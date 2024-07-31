@@ -1,8 +1,8 @@
-export default function TituloComponente() {
+export default function TituloComponente(texto) {
     return(
         <>
             <section>
-                <h2> Ecommerce </h2>
+                <h2> {texto} </h2>
             </section>
         </>
     )
