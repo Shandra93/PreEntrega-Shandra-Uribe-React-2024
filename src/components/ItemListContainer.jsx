@@ -1,6 +1,6 @@
 import './ItemListContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ButtonProduct from './ButtonProduct';
+import ButtonProduct from './Buttons/ButtonProduct';
 
 export default function ItemListContainer() {
     return (

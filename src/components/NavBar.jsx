@@ -1,4 +1,4 @@
-import ButtonComponent from "./ButtonComponent";
+import ButtonComponent from "./Buttons/ButtonComponent";
 import './NavBar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CounterComponent from './CounterComponent';

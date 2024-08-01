@@ -7,7 +7,9 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Bienvenido a Super@lex</h1>
+      <div className='Contenedor'>
+        <h1>Bienvenido a Super@lex</h1>
+      </div>
       <NavBar />
       <ItemListContainer />
     </div>

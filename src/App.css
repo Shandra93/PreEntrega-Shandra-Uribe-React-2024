@@ -7,7 +7,20 @@
 
 h1 {
   color: rgb(0, 136, 255);
-  font-family: 'monospace';
   text-align: center;
   margin-top: 20px;
   }
+
+.Contenedor {
+  display: flex;
+  width: 50rem;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  gap: 5px;
+  background: linear-gradient(45deg, #f7f7f7, #b7b7b7);
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
