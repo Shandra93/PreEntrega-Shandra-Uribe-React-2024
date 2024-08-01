@@ -9,6 +9,8 @@ export default function ItemListContainer() {
                 <div className="card-body">
                     <h5 className="card-title">Productos</h5>
                     <ButtonProduct nombre="Producto1" tipo="Producto1"/>                    
+                    <ButtonProduct nombre="Producto2" tipo="Producto2"/>                    
+                    <ButtonProduct nombre="Producto3" tipo="Producto3"/>                    
                 </div>
             </div>
         </div>

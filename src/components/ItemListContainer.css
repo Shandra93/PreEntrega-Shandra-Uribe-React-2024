@@ -1,6 +1,4 @@
-/* ItemListContainer.css */
 .item-list-container {
-    height: 500px;
     width: 50rem;
     margin-top: 20px;
     padding: 20px;
@@ -49,4 +47,13 @@
 .item-list-container .list-group-item:hover {
     background-color: #0056b3;
     transform: scale(1.05);
+}
+
+.card-body {
+    background-color: #999999;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
