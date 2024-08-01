@@ -1,3 +1,4 @@
+/* ItemListContainer.css */
 .item-list-container {
     height: 500px;
     width: 50rem;
@@ -32,14 +33,20 @@
     color: #333;
 }
 
-.item-list-container .btn-primary {
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
+.item-list-container .list-group-item {
+    display: block;
+    width: 100%;
     padding: 10px 20px;
-    transition: background-color 0.3s ease;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.item-list-container .btn-primary:hover {
+.item-list-container .list-group-item:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }

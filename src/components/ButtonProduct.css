@@ -1,0 +1,25 @@
+.boton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-Producto1 {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+}
+
+.boton-Producto2 {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+}
+
+.boton-Producto3 {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+}
+
+.boton:hover {
+    opacity: 0.8;
+}
