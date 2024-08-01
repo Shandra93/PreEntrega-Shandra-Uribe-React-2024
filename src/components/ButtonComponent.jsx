@@ -4,8 +4,12 @@ export default function ButtonComponent({ nombre, tipo }) {
 
     const classNames = `btn boton boton-${tipo}`;
 
+        const handleClick = () => {
+        alert(`Estas en la seccion de ${nombre}`)
+    }
+
     return (
-        <button className={classNames}>
+        <button onClick = {handleClick} className={classNames}>
             {nombre}
         </button>
     );
