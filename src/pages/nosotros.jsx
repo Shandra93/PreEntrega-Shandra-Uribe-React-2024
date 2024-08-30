@@ -11,7 +11,7 @@ export default function Nosotros() {
                     <h2>Misión</h2>
                     <p>
                         En Super@lex, nuestra misión es proporcionar productos de alta calidad y un excelente servicio al cliente.
-                        Estamos comprometidos con la satisfacción de nuestros clientes y trabajamos continuamente para mejorar nuestros productos y servicios.,
+                        Estamos comprometidos con la satisfacción de nuestros clientes y trabajamos continuamente para mejorar nuestros productos y servicios.
                     </p>
                 </section>
                 <section className="nosotros-section">
