@@ -1,16 +1,17 @@
+// src/components/Buttons/ButtonComponent.js
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
+
 /* eslint-disable react/prop-types */
 export default function ButtonComponent({ nombre, tipo }) {
 
-    const classNames = `btn boton boton-${tipo}`;
-
-        const handleClick = () => {
-        alert(`Estas en la seccion de ${nombre}`)
-    }
+    // Ajustar las rutas según el tipo de botón
+    const route = tipo === "Nosotros" ? "/nosotros" : "/productos";
+    const classNames = `btn btn-${tipo.toLowerCase()}`;
 
     return (
-        <button onClick = {handleClick} className={classNames}>
+        <Link to={route} className={classNames}>
             {nombre}
-        </button>
+        </Link>
     );
 }

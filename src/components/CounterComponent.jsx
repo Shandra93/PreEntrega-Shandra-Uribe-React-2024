@@ -20,8 +20,6 @@ export default function CounterComponent() {
         <section className="counter-section">
             <FontAwesomeIcon icon={faShoppingCart} size="2x" />
             <p>{counter}</p>
-            <button className="button" onClick={handleClick}>+</button>
-            <button className="button" onClick={minusClick}>-</button>
         </section>
     );
 }

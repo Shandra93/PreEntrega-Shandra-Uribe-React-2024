@@ -1,0 +1,43 @@
+/* src/pages/nosotros.css */
+
+.nosotros-container {
+    width: 80%;
+    margin: 40px auto; /* Agregado margen superior e inferior para mayor separación */
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nosotros-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px; 
+}
+
+.nosotros-content {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6; 
+}
+
+.nosotros-section {
+    background: #ffffff; 
+    padding: 20px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px; 
+}
+
+.nosotros-section h2 {
+    font-size: 28px;
+    color: #007bff;
+    margin-bottom: 15px; 
+}
+
+.nosotros-section p {
+    line-height: 1.6;
+    margin: 0; /
+}

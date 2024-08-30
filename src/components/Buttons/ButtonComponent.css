@@ -1,25 +1,44 @@
+/* Estilo para los botones */
 .boton {
+    display: inline-block;
     padding: 10px 20px;
-    border: none;
+    margin: 5px;
     border-radius: 5px;
+    background-color: #007bff;
     color: white;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.boton-about {
-    background: linear-gradient(45deg, #ff416c, #ff4b2b);
-}
-
-.boton-product {
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
-}
-
-.boton-contact {
-    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
 }
 
 .boton:hover {
-    opacity: 0.8;
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.boton-Home {
+    background-color: #28a745; /* Color específico para el botón Home */
+}
+
+.boton-Home:hover {
+    background-color: #218838;
+}
+
+.boton-Nosotros {
+    background-color: #17a2b8; /* Color específico para el botón Nosotros */
+}
+
+.boton-Nosotros:hover {
+    background-color: #138496;
+}
+
+.boton-Productos {
+    background-color: #ffc107; /* Color específico para el botón Productos */
+}
+
+.boton-Productos:hover {
+    background-color: #e0a800;
 }

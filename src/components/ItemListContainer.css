@@ -5,46 +5,54 @@
     background: linear-gradient(45deg, #f7f7f7, #b7b7b7);
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center; 
 }
 
-.item-list-container p {
-    margin: 0;
-    font-size: 18px;
-    color: #333;
-}
-
-.item-list-container .card {
-    max-width: 400px;
-    margin: auto;
+.product-card {
+    width: 18rem;
+    padding: 15px;
+    background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.item-list-container .card-title {
-    font-size: 24px;
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-card .card-title {
+    font-size: 20px;
     font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-card .card-text {
+    font-size: 16px;
+    color: #666;
     margin-bottom: 15px;
 }
 
-.item-list-container .card-text {
-    font-size: 16px;
-    color: #333;
-}
-
-.item-list-container .list-group-item {
+.product-card .btn-detail {
     display: block;
     width: 100%;
-    padding: 10px 20px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
     border-radius: 5px;
     background-color: #007bff;
     color: white;
+    text-decoration: none;
     text-align: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.item-list-container .list-group-item:hover {
+.product-card .btn-detail:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }
@@ -56,4 +64,5 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    padding: 15px;
 }
