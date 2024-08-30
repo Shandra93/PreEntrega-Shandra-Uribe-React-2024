@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
+import './ButtonComponent.css';  // Asegúrate de que la ruta es correcta
 
 export default function ButtonComponent({ nombre, tipo }) {
 
