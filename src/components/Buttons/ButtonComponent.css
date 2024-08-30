@@ -1,44 +1,90 @@
-/* Estilo para los botones */
-.boton {
-    display: inline-block;
+.barra {
+    background-color: #9e9e9e; 
+    border-radius: 10px;
     padding: 10px 20px;
-    margin: 5px;
+    border-bottom: 2px solid #495057; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+}
+
+.btn {
+    padding: 10px 20px;
     border-radius: 5px;
-    background-color: #007bff;
-    color: white;
     text-decoration: none;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 8px;
+    display: inline-block; 
+    text-align: center; 
+    font-weight: 600; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
-.boton:hover {
-    background-color: #0056b3;
+.btn:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
-.boton-Home {
-    background-color: #28a745; /* Color específico para el botón Home */
+.btn-home {
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 8px;
+    display: inline-block; 
+    text-align: center; 
+    font-weight: 600; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
-.boton-Home:hover {
+.btn-home:hover {
+    background-color: #0056b3;
+}
+
+.btn-nosotros {
+    background-color: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 8px;
+    display: inline-block; 
+    text-align: center; 
+    font-weight: 600; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-nosotros:hover {
     background-color: #218838;
 }
 
-.boton-Nosotros {
-    background-color: #17a2b8; /* Color específico para el botón Nosotros */
+.btn-productos {
+    background-color: #ffc107;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 8px;
+    display: inline-block; 
+    text-align: center; 
+    font-weight: 600; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
-.boton-Nosotros:hover {
-    background-color: #138496;
-}
-
-.boton-Productos {
-    background-color: #ffc107; /* Color específico para el botón Productos */
-}
-
-.boton-Productos:hover {
+.btn-productos:hover {
     background-color: #e0a800;
 }

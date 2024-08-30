@@ -1,14 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './ProductDetail.css'; 
-
-const productos = [
-  { id: '1', nombre: 'Producto A', descripcion: 'Descripción detallada del Producto A.', precio: 100 },
-  { id: '2', nombre: 'Producto B', descripcion: 'Descripción detallada del Producto B.', precio: 200 },
-  { id: '3', nombre: 'Producto C', descripcion: 'Descripción detallada del Producto C.', precio: 300 },
-  { id: '4', nombre: 'Producto D', descripcion: 'Descripción detallada del Producto D.', precio: 400 },
-  { id: '5', nombre: 'Producto E', descripcion: 'Descripción detallada del Producto E.', precio: 500 },
-];
+import { productos } from '../data/products';
+import './ProductDetail.css';
 
 function ProductDetail() {
   const { id } = useParams();
@@ -20,10 +13,11 @@ function ProductDetail() {
 
   return (
     <div className="product-detail">
+      <img src={producto.imagen} alt={producto.nombre} className="product-image" />
       <h2>{producto.nombre}</h2>
       <p>{producto.descripcion}</p>
       <p className="product-price">Precio: ${producto.precio}</p>
-      <Link to="/" className="btn-back">Volver</Link>
+      <Link to="/productos" className="btn-back">Volver</Link>
     </div>
   );
 }

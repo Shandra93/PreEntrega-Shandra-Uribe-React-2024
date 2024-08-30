@@ -26,6 +26,13 @@
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
+.product-card .product-image {
+    width: auto;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
 .product-card .card-title {
     font-size: 20px;
     font-weight: bold;

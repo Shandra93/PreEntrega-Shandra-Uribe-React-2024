@@ -1,8 +1,8 @@
 .barra {
-    background-color: #f8f9fa;
+    background-color: #9e9e9e; 
+    border-radius: 10px;
     padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
+    border-bottom: 2px solid #495057; 
     align-items: center;
     justify-content: space-between;
 }
@@ -22,18 +22,22 @@
     border-radius: 5px;
     text-decoration: none;
     color: #fff;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 0 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 8px;
     display: inline-block; 
     text-align: center; 
+    font-weight: 600; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
 .btn:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 .btn-home {
     background-color: #007bff;
+    
 }
 
 .btn-home:hover {
