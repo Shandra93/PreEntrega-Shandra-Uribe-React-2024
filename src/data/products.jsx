@@ -4,5 +4,6 @@ export const productos = [
     { id: '3', nombre: 'Termo', descripcion: 'Descripción detallada del Termo.', precio: 30, imagen: '/src/assets/termo.png' },
     { id: '4', nombre: 'Tarjetero', descripcion: 'Descripción detallada del Tarjetero.', precio: 40, imagen: '/src/assets/tarjetero.png' },
     { id: '5', nombre: 'Chamarra', descripcion: 'Descripción detallada de la Chamarra.', precio: 50, imagen: '/src/assets/chamarra.png' },
+    { id: '6', nombre: 'Porta-retratos', descripcion: 'Descripción detallada del portaretrato.', precio: 40, imagen: '/src/assets/Frame.png' },
   ];
   
