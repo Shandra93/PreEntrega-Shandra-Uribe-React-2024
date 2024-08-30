@@ -1,8 +1,6 @@
-/* src/pages/nosotros.css */
-
 .nosotros-container {
     width: 80%;
-    margin: 40px auto; /* Agregado margen superior e inferior para mayor separación */
+    margin: 40px auto; 
     padding: 20px;
     background: #f9f9f9;
     border-radius: 8px;
