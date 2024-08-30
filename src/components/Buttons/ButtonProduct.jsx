@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './ButtonProduct.css';
 
-/* eslint-disable react/prop-types */
 export default function ButtonProduct({ nombre, tipo }) {
 
     const classNames = `btn boton boton-${tipo}`;

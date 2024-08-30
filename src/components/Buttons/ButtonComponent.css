@@ -1,25 +1,90 @@
-.boton {
+.barra {
+    background-color: #9e9e9e; 
+    border-radius: 10px;
     padding: 10px 20px;
-    border: none;
+    border-bottom: 2px solid #495057; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+}
+
+.btn {
+    padding: 10px 20px;
     border-radius: 5px;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 8px;
+    display: inline-block; 
+    text-align: center; 
+    font-weight: 600; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
-.boton-about {
-    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
-.boton-product {
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
+.btn-home {
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 8px;
+    display: inline-block; 
+    text-align: center; 
+    font-weight: 600; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
-.boton-contact {
-    background: linear-gradient(45deg, #00c6ff, #0072ff);
+.btn-home:hover {
+    background-color: #0056b3;
 }
 
-.boton:hover {
-    opacity: 0.8;
+.btn-nosotros {
+    background-color: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 8px;
+    display: inline-block; 
+    text-align: center; 
+    font-weight: 600; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-nosotros:hover {
+    background-color: #218838;
+}
+
+.btn-productos {
+    background-color: #ffc107;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 8px;
+    display: inline-block; 
+    text-align: center; 
+    font-weight: 600; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-productos:hover {
+    background-color: #e0a800;
 }
