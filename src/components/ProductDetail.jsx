@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { productos } from '../data/products';
 import './ProductDetail.css';
+import "./Buttons/ButtonProduct";
 
 function ProductDetail() {
   const { id } = useParams();

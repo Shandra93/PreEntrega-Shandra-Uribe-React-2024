@@ -5,7 +5,9 @@
     border-radius: 10px;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(45deg, #f7f7f7, #b7b7b7);
+    width: 55rem;
+    background: rgb(255,224,0);
+    background: radial-gradient(circle, rgba(255,224,0,1) 0%, rgba(255,255,255,1) 100%);    
     text-align: center;
     padding: 20px;
 }

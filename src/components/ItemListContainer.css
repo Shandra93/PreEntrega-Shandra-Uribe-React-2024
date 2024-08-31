@@ -2,13 +2,16 @@
     width: 50rem;
     margin-top: 20px;
     padding: 20px;
-    background: linear-gradient(45deg, #f7f7f7, #b7b7b7);
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 2%, rgba(252,70,107,1) 100%);  
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-wrap: wrap;
     gap: 20px; 
     justify-content: center; 
+    border-bottom: 2px solid #495057; 
+
 }
 
 .product-card {
