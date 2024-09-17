@@ -12,7 +12,7 @@ Este es un proyecto de una aplicación de e-commerce desarrollada en React que p
   
 ## Tecnologías usadas
 
-- [React](https://reactjs.org/) - Librería de JavaScript para construir interfaces de usuario.
+- [React](https://reactjs.org/)
 - [React Router](https://reactrouter.com/) - Manejo de rutas y navegación dentro de la aplicación.
 - [Firebase](https://firebase.google.com/) - Backend para gestionar la base de datos de productos.
 - [Bootstrap](https://getbootstrap.com/) - Framework de CSS para estilos responsivos.
@@ -22,7 +22,7 @@ Este es un proyecto de una aplicación de e-commerce desarrollada en React que p
 
 1. Clona este repositorio:
     ```bash
-    git clone https://github.com/tuusuario/ecommerce-react.git
+    git clone https://github.com/Shandra93/PreEntrega-Shandra-Uribe-React-2024
     ```
 
 2. Entra en el directorio del proyecto:
