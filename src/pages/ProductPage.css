@@ -1,7 +1,19 @@
+.Banner {
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+    border-bottom: solid black 2px;
+    margin-top: 10px;
+}
 
 .product-page {
-    padding: 20px;
+    width: auto;
     text-align: center;
+}
+
+.product-container {
+    width: 100%;
+    background-color: #7EACB5;
 }
 
 .product-page h2 {

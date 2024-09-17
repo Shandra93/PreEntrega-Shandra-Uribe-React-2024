@@ -1,17 +1,14 @@
 .item-list-container {
-    width: 50rem;
+    width: 100%;
     margin-top: 20px;
     padding: 20px;
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 2%, rgba(252,70,107,1) 100%);  
+    background: #7EACB5;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-wrap: wrap;
     gap: 20px; 
     justify-content: center; 
-    border-bottom: 2px solid #495057; 
-
 }
 
 .product-card {
@@ -55,15 +52,16 @@
     padding: 10px;
     margin-top: 10px;
     border-radius: 5px;
-    background-color: #007bff;
-    color: white;
+    background: #FADFA1;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     text-align: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .product-card .btn-detail:hover {
-    background-color: #0056b3;
+    background-color: #C96868;
+    color: #ffffff;
     transform: scale(1.05);
 }
 

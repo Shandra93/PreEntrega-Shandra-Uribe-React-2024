@@ -5,7 +5,7 @@ import './ProductPage.css';
 export default function ProductPage() {
     return (
         <div className="product-page">
-            <h2>P R O D U C T O S</h2>
+            <img className="Banner" src='src\assets\Banner.png'></img>
             <ItemListContainer />
         </div>
     );

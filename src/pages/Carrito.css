@@ -1,0 +1,128 @@
+.Carrito-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #7EACB5, #97C4D7);
+  text-align: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.Carrito-page-container h1 {
+  font-size: 48px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}  
+
+.Carrito-page-container ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+.Carrito-page-container li {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.Carrito-page-container li:hover {
+  transform: translateY(-5px);
+}
+
+.Carrito-page-container .product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.Carrito-page-container h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.Carrito-page-container p {
+  margin: 5px 0;
+}
+
+.btn-clear, .btn-order {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-clear {
+  background-color: #ff4d4d; 
+  color: #fff; 
+}
+
+.btn-clear:hover {
+  background-color: #cc0000;
+  box-shadow: 0 6px 12px rgba(204, 0, 0, 0.5);
+}
+
+.btn-order {
+  background-color: #4CAF50; 
+  color: #fff; 
+}
+
+.btn-order:hover {
+  background-color: #45a049; 
+  box-shadow: 0 6px 12px rgba(69, 160, 73, 0.5);
+}
+
+.client-info-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.client-info-form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.client-info-form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.client-info-form button {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.client-info-form button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 12px rgba(0, 86, 179, 0.5);
+}
+
+

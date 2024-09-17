@@ -1,11 +1,3 @@
-.barra {
-    background-color: #9e9e9e; 
-    border-radius: 10px;
-    padding: 10px 20px;
-    border-bottom: 2px solid #495057; 
-    align-items: center;
-    justify-content: space-between;
-}
 
 .navbar-logo {
     display: flex;
@@ -17,7 +9,50 @@
     width: auto;
 }
 
+.logo-image:hover {
+    transform: scale(1.15);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .btn {
+    border-radius: 5px;
+    text-decoration: none;
+    color: #181717;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 8px;
+    display: inline-block; 
+    text-align: center; 
+    font-weight: 600; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.btn:hover {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.btn-home {
+    background: #FFF4EA;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    margin: 0 8px;
+    display: inline-block; 
+    text-align: center; 
+    font-weight: 600; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-home:hover {
+    background: #FADFA1;
+    color: #C96868;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-nosotros {
+    background: #FFF4EA;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -30,54 +65,19 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
-}
-
-.btn-home {
-    background-color: #eef5f0;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #000000;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 0 8px;
-    display: inline-block; 
-    text-align: center; 
-    font-weight: 600; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
-}
-
-.btn-home:hover {
-    background-color: #4cc98d;
-    color: #ffffff;}
-
-.btn-nosotros {
-    background-color: #eef5f0;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #000000;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 0 8px;
-    display: inline-block; 
-    text-align: center; 
-    font-weight: 600; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
-}
-
 .btn-nosotros:hover {
-    background-color: #4cc98d;
-    color: #ffffff;
+    background: #FADFA1;
+    color: #C96868;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-productos {
-    background-color: #eef5f0;
+    background: #FFF4EA;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
-    color: #000000;
+    color: #fff;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     margin: 0 8px;
     display: inline-block; 
@@ -87,5 +87,25 @@
 }
 
 .btn-productos:hover {
-    background-color: #4cc98d;
-    color: #ffffff;}
+    background: #FADFA1;
+    color: #C96868;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-cart {
+    background-color: #FADFA1; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-cart:hover {
+    background-color: #FFF4EA; 
+    color: #C96868;
+    transform: scale(1.15);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
