@@ -21,6 +21,10 @@ export const CarritoProvider = ({ children }) => {
     });
   };
 
+  const removeFromCarrito = (id) => {
+    setCarrito(prevCarrito => prevCarrito.filter(item => item.id !== id));
+  };
+
   const clearCarrito = () => {
     setCarrito([]);
   };
@@ -32,7 +36,7 @@ export const CarritoProvider = ({ children }) => {
         totalPrice: carrito.reduce((total, item) => total + item.price * item.quantity, 0),
         createdAt: new Date(),
         client: clientInfo,
-        shipmentNumber: Math.floor(Math.random() * 1000000) 
+        shipmentNumber: Math.floor(Math.random() * 1000000)
       };
       const orderCollection = collection(db, 'Orders');
       await addDoc(orderCollection, orderData);
@@ -45,7 +49,7 @@ export const CarritoProvider = ({ children }) => {
   };
 
   return (
-    <CarritoContext.Provider value={{ carrito, addToCarrito, clearCarrito, createOrder }}>
+    <CarritoContext.Provider value={{ carrito, addToCarrito, removeFromCarrito, clearCarrito, createOrder }}>
       {children}
     </CarritoContext.Provider>
   );

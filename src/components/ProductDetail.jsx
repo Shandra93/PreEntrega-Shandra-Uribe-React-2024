@@ -1,62 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { db } from '../data/firebase';
-import { useParams, Link } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore';
+import React from 'react';
 import ItemCounter from './Buttons/ItemCounter';
-import { useCarrito } from '../Context/CarritoContext'; 
+import { useCarrito } from '../Context/CarritoContext';
 import './ProductDetail.css';
 
-function ProductDetail() {
-  const { id } = useParams();
-  const [producto, setProducto] = useState(null);
-  const [showMessage, setShowMessage] = useState(false);
+const ProductDetail = ({ producto }) => {
   const { addToCarrito } = useCarrito();
 
-  useEffect(() => {
-    const fetchProducto = async () => {
-      try {
-        const productoDoc = doc(db, 'Productos', id);
-        const productoSnapshot = await getDoc(productoDoc);
-        if (productoSnapshot.exists()) {
-          setProducto({ id: productoSnapshot.id, ...productoSnapshot.data() });
-        } else {
-          console.error("Producto no encontrado");
-        }
-      } catch (error) {
-        console.error("Error al obtener producto:", error);
-      }
-    };
-
-    fetchProducto();
-  }, [id]);
+  if (!producto) {
+    return <div>Producto no disponible</div>;
+  }
 
   const handleAddToCart = (count) => {
-    if (producto) {
-      addToCarrito(producto, count);
-      setShowMessage(true);
-      setTimeout(() => setShowMessage(false), 3000);
-    }
+    addToCarrito(producto, count);
   };
-
-  if (!producto) {
-    return <div>Producto no encontrado</div>;
-  }
 
   return (
     <div className="product-detail">
-      <img src={producto.img} alt={producto.title} className="product-image" />
-      <h2>{producto.title}</h2>
-      <p>{producto.descripcion}</p>
-      <p className="product-price">Precio: ${producto.price}</p>
+      <h2>{producto.title || "Producto sin título"}</h2>
+      <img 
+        src={producto.img} 
+        alt={producto.title || "Imagen no disponible"} 
+        className="product-image" 
+      />
+      <p>{producto.descripcion || "Sin descripción disponible"}</p>
+      <p className="product-price">Precio: ${producto.price || 0}</p>
       <ItemCounter 
         initial={1} 
-        stock={producto.stock} 
+        stock={producto.stock || 0} 
         onAdd={handleAddToCart} 
       />
-      {showMessage && <div className="notification">Producto agregado al carrito</div>}
-      <Link to="/productos" className="btn-back">Volver</Link>
     </div>
   );
-}
+};
 
 export default ProductDetail;

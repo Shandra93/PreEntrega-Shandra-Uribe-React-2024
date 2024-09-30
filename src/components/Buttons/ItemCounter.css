@@ -1,34 +1,46 @@
 .item-counter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0;
-  }
-  
-  .item-counter button {
-    background-color: #3498db;
-    color: white; 
-    border: none;
-    padding: 10px 15px; 
-    font-size: 16px; 
-    border-radius: 5px; 
-    margin: 0 5px; 
-    cursor: pointer;
-    transition: background-color 0.3s ease; 
-  }
-  
-  .item-counter button:hover {
-    background-color: #2980b9; 
-  }
-  
-  .item-counter span {
-    font-size: 18px;
-    margin: 0 15px; 
-    font-weight: bold; 
-  }
-  
-  .item-counter button:disabled {
-    background-color: #bdc3c7; 
-    cursor: not-allowed; 
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.item-counter button {
+  background-color: #3498db;
+  color: white; 
+  border: none;
+  padding: 12px 20px; 
+  font-size: 16px; 
+  border-radius: 5px; 
+  margin: 0 5px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.item-counter button:hover {
+  background-color: #2980b9; 
+  transform: scale(1.05); 
+}
+
+.item-counter span {
+  font-size: 18px;
+  margin: 0 15px; 
+  font-weight: bold; 
+  color: #000000; 
+}
+
+.item-counter button:disabled {
+  background-color: #bdc3c7; 
+  cursor: not-allowed; 
+  opacity: 0.7; /* Añadí opacidad para indicar que está deshabilitado */
+}
+
+/* Estilo específico para el botón de decremento */
+.item-counter .decrement {
+  background-color: #e74c3c; /* Color rojo para el botón de restar */
+}
+
+.item-counter .decrement:hover {
+  background-color: #c0392b; /* Color más oscuro en hover */
+}

@@ -65,3 +65,25 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
   
+  @media (max-width: 768px) {
+    .product-detail {
+      width: 90%; 
+    }
+    .product-detail .product-image {
+      width: 80%; 
+    }
+  }
+
+  .notification {
+    opacity: 0;
+    animation: fadeInOut 3s forwards;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  

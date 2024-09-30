@@ -24,6 +24,6 @@ dist-ssr
 *.sw?
 .env
 
-# /node_modules/
+node_modules/
 #/firebase.jsx
 # Estos son archivos con claves API.

@@ -1,5 +1,5 @@
 import React from 'react';
-import './nosotros.css';
+import './Nosotros.css';
 
 
 export default function Nosotros() {

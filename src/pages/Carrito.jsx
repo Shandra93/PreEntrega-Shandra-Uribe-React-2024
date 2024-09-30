@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Carrito.css';
 
 const Carrito = () => {
-  const { carrito, createOrder } = useCarrito();
+  const { carrito, createOrder, removeFromCarrito } = useCarrito(); // Agrega removeFromCarrito
   const [clientInfo, setClientInfo] = useState({ name: '', email: '', phone: '' });
   const navigate = useNavigate(); 
 
@@ -31,12 +31,13 @@ const Carrito = () => {
       ) : (
         <>
           <ul>
-            {carrito.map((item, index) => (
-              <li key={index}>
+            {carrito.map((item) => (
+              <li key={item.id}>
                 <img src={item.img} alt={item.title} className="product-image" />
                 <h2>{item.title}</h2>
                 <p>Precio: ${item.price}</p>
                 <p>Cantidad: {item.quantity}</p>
+                <button onClick={() => removeFromCarrito(item.id)}> X </button> 
               </li>
             ))}
           </ul>
