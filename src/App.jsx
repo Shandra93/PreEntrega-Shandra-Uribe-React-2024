@@ -1,6 +1,6 @@
 import './App.css';
 import { CarritoProvider } from './Context/CarritoContext'; 
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import HomePage from './pages/HomePage';
 import PurchaseSummary from './pages/PurchaseSummary';
 import Nosotros from './pages/Nosotros'; 
