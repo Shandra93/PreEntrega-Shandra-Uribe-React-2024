@@ -1,6 +1,6 @@
 import React from 'react';
 import ItemCounter from './Buttons/ItemCounter';
-import { useCarrito } from '../Context/CarritoContext';
+import { useCarrito } from '../context/CarritoContext';
 import './ProductDetail.css';
 
 const ProductDetail = ({ producto }) => {

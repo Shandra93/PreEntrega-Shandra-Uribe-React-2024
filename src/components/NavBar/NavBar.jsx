@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useCarrito } from '../../Context/CarritoContext';
+import { useCarrito } from '../../context/CarritoContext';
 import './NavBar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaShoppingCart } from 'react-icons/fa';
