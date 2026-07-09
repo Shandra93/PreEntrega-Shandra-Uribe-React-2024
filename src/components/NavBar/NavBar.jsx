@@ -1,32 +1,83 @@
-/* eslint-disable no-unused-vars */
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useCarrito } from '../../context/CarritoContext';
-import './NavBar.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaShoppingCart } from 'react-icons/fa';
-import '../Buttons/ButtonComponent.css';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { FaShoppingCart, FaSearch } from "react-icons/fa";
+
+import { useCarrito } from "../../context/CarritoContext";
+import CartDrawer from "../CartDrawer/CartDrawer";
+
+import "./NavBar.css";
 
 export default function NavBar() {
-    const { carrito } = useCarrito(); 
-    const totalItems = carrito.reduce((total, item) => total + item.quantity, 0);
+    const { carrito } = useCarrito();
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
+    const totalItems = carrito.reduce(
+        (total, item) => total + item.quantity,
+        0
+    );
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light barra">
-            <div className="container-fluid d-flex justify-content-between align-items-center">
-                <Link to="/" className="navbar-logo">
-                    <img src='src/assets/images/logos/Foco.png' alt="Logo" className="logo-image" />
-                </Link>
-                <div className="nav-links">
-                    <Link to="/About" className="btn btn-nosotros">Nosotros</Link>
-                    <Link to="/Products" className="btn btn-productos">Productos</Link>
-                    <Link to="/Home" className="btn btn-home">Home</Link>
+        <>
+            <nav className="barra">
+                <div className="navbar-content">
+
+                    <Link to="/" className="navbar-logo">
+                        <img
+                            src="/src/assets/images/logos/Foco.png"
+                            alt="Super Alex Logo"
+                            className="logo-image"
+                        />
+
+                        <div className="logo-text">
+                            <h2>SUPER@LEX</h2>
+                            <span>Smart Electronics</span>
+                        </div>
+                    </Link>
+
+                    <div className="search-box">
+                        <FaSearch className="search-icon" />
+                        <input
+                            type="text"
+                            placeholder="Buscar productos..."
+                        />
+                    </div>
+
+                    <div className="nav-links">
+                        <Link to="/" className="nav-link-custom">
+                            Inicio
+                        </Link>
+
+                        <Link to="/productos" className="nav-link-custom">
+                            Productos
+                        </Link>
+
+                        <Link to="/nosotros" className="nav-link-custom">
+                            Nosotros
+                        </Link>
+                    </div>
+
+                    <button
+                        type="button"
+                        className="cart-button"
+                        onClick={() => setIsCartOpen(true)}
+                        aria-label="Abrir carrito"
+                    >
+                        <FaShoppingCart />
+
+                        {totalItems > 0 && (
+                            <span className="cart-count">
+                                {totalItems}
+                            </span>
+                        )}
+                    </button>
+
                 </div>
-                <Link to="/Cart" className="btn btn-cart">
-                    <FaShoppingCart size={50} />
-                    {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
-                </Link>
-            </div>
-        </nav>
+            </nav>
+
+            <CartDrawer
+                isOpen={isCartOpen}
+                onClose={() => setIsCartOpen(false)}
+            />
+        </>
     );
 }

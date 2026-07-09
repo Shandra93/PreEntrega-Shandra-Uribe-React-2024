@@ -5,7 +5,6 @@ import { db } from '../services/firebase/firebase';
 import ProductCard from "./ProductCard/ProductCard";
 import './ItemListContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ProductCard from "./ProductCard/ProductCard";
 
 export default function ItemListContainer() {
   const [productos, setProductos] = useState([]);

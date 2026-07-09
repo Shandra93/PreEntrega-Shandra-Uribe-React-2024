@@ -1,11 +1,20 @@
-import React, { createContext, useState, useContext } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { createContext, useState, useContext, useEffect } from 'react';
 import { db } from '../services/firebase/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 
 const CarritoContext = createContext();
 
 export const CarritoProvider = ({ children }) => {
-  const [carrito, setCarrito] = useState([]);
+
+  const [carrito, setCarrito] = useState(() => {
+    const saved = localStorage.getItem("carrito");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+  }, [carrito]);
 
   const addToCarrito = (producto, quantity) => {
     setCarrito(prevCarrito => {

@@ -1,68 +1,16 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import BannerInicio from "../../assets/images/banners/BannerInicio.png";
-import { Link } from "react-router-dom";
-import {
-    FaShippingFast,
-    FaLock,
-    FaHeadset,
-    FaStar
-} 
-
-from "react-icons/fa";
-
+import Hero from "../../components/Home/Hero/Hero";
+import Categories from "../../components/Home/Categories/Categories";
+import Benefits from "../../components/Home/Benefits/Benefits";
+import Newsletter from "../../components/Home/Newsletter/Newsletter";
 import "./Home.css";
 
-const HomePage = () => {
+export default function Home() {
     return (
         <>
-            <div className="home-page-container">
-                <img
-                    className="BannerInicio"
-                    src={BannerInicio}
-                    alt="Banner Principal"
-                />
-            </div>
-
-            <section className="features">
-
-                <h2>¿Por qué comprar con nosotros?</h2>
-
-                <div className="cards">
-
-                    <div className="card">
-                        <FaShippingFast />
-                        <h3>Envío Rápido</h3>
-                        <p>Entregamos a todo México.</p>
-                    </div>
-
-                    <div className="card">
-                        <FaLock />
-                        <h3>Pago Seguro</h3>
-                        <p>Protegemos cada compra.</p>
-                    </div>
-
-                    <div className="card">
-                        <FaHeadset />
-                        <h3>Soporte 24/7</h3>
-                        <p>Siempre estamos para ayudarte.</p>
-                    </div>
-
-                    <div className="card">
-                        <FaStar />
-                        <h3>Calidad Garantizada</h3>
-                        <p>Productos seleccionados cuidadosamente.</p>
-                    </div>
-
-                </div>
-
-                <Link to="/productos" className="btnShop">
-                     Explorar Productos
-                </Link>                                       
-                
-            </section>
+            <Hero />
+            <Categories />
+            <Benefits />
+            <Newsletter />
         </>
     );
-};
-
-export default HomePage;
+}

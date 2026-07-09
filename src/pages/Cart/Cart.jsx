@@ -1,82 +1,132 @@
-import React, { useState } from 'react';
-import { useCarrito } from '../../context/CarritoContext';
-import { useNavigate } from 'react-router-dom';
-import './Cart.css';
+import { Link, useNavigate } from "react-router-dom";
+import { FaTrash, FaArrowLeft, FaCreditCard } from "react-icons/fa";
+import { useCarrito } from "../../context/CarritoContext";
+import "./Cart.css";
 
-const Cart = () => {
-  const { carrito, createOrder, removeFromCarrito } = useCarrito();
-  const [clientInfo, setClientInfo] = useState({ name: '', email: '', phone: '' });
-  const navigate = useNavigate();
+export default function Cart() {
+    const { carrito, removeFromCarrito, clearCarrito } = useCarrito();
+    const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setClientInfo({ ...clientInfo, [name]: value });
-  };
+    const subtotal = carrito.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0
+    );
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (clientInfo.name && clientInfo.email && clientInfo.phone) {
-      await createOrder(clientInfo);
-      navigate('/checkout', {
-        state: {
-          buyer: clientInfo,
-          items: carrito,
-          total: carrito.reduce(
-            (total, item) => total + item.price * item.quantity,
-            0
-          ),
-        },
-      });
+    const envio = subtotal > 0 ? 99 : 0;
+    const total = subtotal + envio;
+
+    const handleGoToCheckout = () => {
+        navigate("/checkout", {
+            state: {
+                items: carrito,
+                subtotal,
+                envio,
+                total,
+            },
+        });
+    };
+
+    if (carrito.length === 0) {
+        return (
+            <main className="cart-page">
+                <section className="cart-empty-page">
+                    <h1>Tu carrito está vacío</h1>
+                    <p>
+                        Agrega productos a tu carrito y vuelve aquí para finalizar tu compra.
+                    </p>
+
+                    <Link to="/productos" className="cart-primary-link">
+                        Explorar productos
+                    </Link>
+                </section>
+            </main>
+        );
     }
-  };
 
-  return (
-    <div className="Carrito-page-container">
-      <h1>Este es tu carrito</h1>
-      {carrito.length === 0 ? (
-        <p>No hay productos en tu carrito.</p>
-      ) : (
-        <>
-          <ul>
-            {carrito.map((item) => (
-              <li key={item.id}>
-                <img src={item.img} alt={item.title} className="product-image" />
-                <h2>{item.title}</h2>
-                <p>Precio: ${item.price}</p>
-                <p>Cantidad: {item.quantity}</p>
-                <button onClick={() => removeFromCarrito(item.id)}> X </button> 
-              </li>
-            ))}
-          </ul>
+    return (
+        <main className="cart-page">
+            <section className="cart-header">
+                <div>
+                    <span>Carrito de compras</span>
+                    <h1>Revisa tus productos</h1>
+                </div>
 
-          <form onSubmit={handleSubmit} className="client-info-form">
-            <input
-              type="text"
-              name="name"
-              placeholder="Nombre"
-              value={clientInfo.name}
-              onChange={handleInputChange}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Correo electrónico"
-              value={clientInfo.email}
-              onChange={handleInputChange}
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Teléfono"
-              value={clientInfo.phone}
-              onChange={handleInputChange}
-            />
-            <button type="submit">Crear Orden</button>
-          </form>
-        </>
-      )}
-    </div>
-  );
-};
+                <Link to="/productos" className="cart-back-link">
+                    <FaArrowLeft />
+                    Seguir comprando
+                </Link>
+            </section>
 
-export default Cart;
+            <section className="cart-layout">
+                <div className="cart-products">
+                    {carrito.map((item) => {
+                        const itemSubtotal = item.price * item.quantity;
+
+                        return (
+                            <article className="cart-item" key={item.id}>
+                                <div className="cart-item-image">
+                                    <img src={item.img} alt={item.title} />
+                                </div>
+
+                                <div className="cart-item-info">
+                                    <h2>{item.title}</h2>
+                                    <p>Precio unitario: ${item.price}</p>
+                                    <p>Cantidad: {item.quantity}</p>
+                                </div>
+
+                                <div className="cart-item-total">
+                                    <span>Subtotal</span>
+                                    <strong>${itemSubtotal}</strong>
+                                </div>
+
+                                <button
+                                    className="cart-remove-button"
+                                    onClick={() => removeFromCarrito(item.id)}
+                                    aria-label="Eliminar producto"
+                                >
+                                    <FaTrash />
+                                </button>
+                            </article>
+                        );
+                    })}
+                </div>
+
+                <aside className="cart-summary">
+                    <h2>Resumen de compra</h2>
+
+                    <div className="summary-row">
+                        <span>Subtotal</span>
+                        <strong>${subtotal}</strong>
+                    </div>
+
+                    <div className="summary-row">
+                        <span>Envío</span>
+                        <strong>${envio}</strong>
+                    </div>
+
+                    <div className="summary-divider" />
+
+                    <div className="summary-total">
+                        <span>Total</span>
+                        <strong>${total}</strong>
+                    </div>
+
+                    <button
+                        className="checkout-button"
+                        onClick={handleGoToCheckout}
+                    >
+                        <FaCreditCard />
+                        Ir a checkout
+                    </button>
+
+                    <button
+                        className="clear-cart-button"
+                        onClick={clearCarrito}
+                    >
+                        Vaciar carrito
+                    </button>
+                </aside>
+            </section>
+        </main>
+    );
+}
