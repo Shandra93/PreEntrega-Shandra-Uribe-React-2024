@@ -5,7 +5,7 @@ import { useCarrito } from '../../context/CarritoContext';
 import './NavBar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaShoppingCart } from 'react-icons/fa';
-import './Buttons/ButtonComponent.css';
+import '../Buttons/ButtonComponent.css';
 
 export default function NavBar() {
     const { carrito } = useCarrito(); 
@@ -15,14 +15,14 @@ export default function NavBar() {
         <nav className="navbar navbar-expand-lg navbar-light barra">
             <div className="container-fluid d-flex justify-content-between align-items-center">
                 <Link to="/" className="navbar-logo">
-                    <img src='src/assets/Foco.png' alt="Logo" className="logo-image" />
+                    <img src='src/assets/images/logos/Foco.png' alt="Logo" className="logo-image" />
                 </Link>
                 <div className="nav-links">
-                    <Link to="/nosotros" className="btn btn-nosotros">Nosotros</Link>
-                    <Link to="/productos" className="btn btn-productos">Productos</Link>
-                    <Link to="/" className="btn btn-home">Home</Link>
+                    <Link to="/About" className="btn btn-nosotros">Nosotros</Link>
+                    <Link to="/Products" className="btn btn-productos">Productos</Link>
+                    <Link to="/Home" className="btn btn-home">Home</Link>
                 </div>
-                <Link to="/carrito" className="btn btn-cart">
+                <Link to="/Cart" className="btn btn-cart">
                     <FaShoppingCart size={50} />
                     {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
                 </Link>

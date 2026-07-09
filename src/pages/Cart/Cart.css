@@ -2,127 +2,113 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 10px;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100vh;
-  background: linear-gradient(135deg, #7EACB5, #97C4D7);
+  padding: 2rem 1rem 3rem;
+  background: linear-gradient(135deg, #020617 0%, #0f172a 60%, #111827 100%);
   text-align: center;
-  padding: 20px;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .Carrito-page-container h1 {
-  font-size: 48px;
-  color: #fff;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-}  
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  color: #f8fafc;
+}
 
 .Carrito-page-container ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
-  width: 100%;
-  max-width: 800px;
+  margin: 0;
+  width: min(900px, 100%);
+  display: grid;
+  gap: 1rem;
 }
 
 .Carrito-page-container li {
-  background-color: #fff;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 10px;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.Carrito-page-container li:hover {
-  transform: translateY(-5px);
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(71, 85, 105, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(2, 6, 23, 0.35);
 }
 
 .Carrito-page-container .product-image {
-  width: 80px;
-  height: 80px;
+  width: 84px;
+  height: 84px;
   object-fit: cover;
-  border-radius: 5px;
-  margin-right: 20px;
+  border-radius: 16px;
 }
 
 .Carrito-page-container h2 {
-  font-size: 20px;
   margin: 0;
+  font-size: 1.05rem;
+  color: #f8fafc;
 }
 
 .Carrito-page-container p {
-  margin: 5px 0;
+  margin: 0.2rem 0 0;
+  color: #cbd5e1;
 }
 
-.btn-clear, .btn-order {
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 16px;
+.Carrito-page-container li button {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #dc2626;
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn-clear {
-  background-color: #ff4d4d; 
-  color: #fff; 
-}
-
-.btn-clear:hover {
-  background-color: #cc0000;
-  box-shadow: 0 6px 12px rgba(204, 0, 0, 0.5);
-}
-
-.btn-order {
-  background-color: #4CAF50; 
-  color: #fff; 
-}
-
-.btn-order:hover {
-  background-color: #45a049; 
-  box-shadow: 0 6px 12px rgba(69, 160, 73, 0.5);
+.Carrito-page-container li button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.18);
 }
 
 .client-info-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  width: 100%;
-  max-width: 400px;
+  gap: 0.85rem;
+  width: min(430px, 100%);
+  padding: 1.25rem;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(71, 85, 105, 0.7);
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(2, 6, 23, 0.35);
 }
 
 .client-info-form input {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .client-info-form input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.16);
   outline: none;
 }
 
 .client-info-form button {
-  padding: 12px;
-  background-color: #007bff;
-  color: white;
+  padding: 0.85rem 1rem;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .client-info-form button:hover {
-  background-color: #0056b3;
-  box-shadow: 0 6px 12px rgba(0, 86, 179, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.24);
 }
 
 

@@ -1,5 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import BannerInicio from "../../assets/images/banners/BannerInicio.png";
+import { Link } from "react-router-dom";
 import {
     FaShippingFast,
     FaLock,
@@ -9,7 +11,7 @@ import {
 
 from "react-icons/fa";
 
-import "./HomePage.css";
+import "./Home.css";
 
 const HomePage = () => {
     return (
@@ -17,7 +19,7 @@ const HomePage = () => {
             <div className="home-page-container">
                 <img
                     className="BannerInicio"
-                    src="/src/assets/BannerInicio.png"
+                    src={BannerInicio}
                     alt="Banner Principal"
                 />
             </div>
@@ -54,11 +56,10 @@ const HomePage = () => {
 
                 </div>
 
-                <button className="btnShop">
-                                       
+                <Link to="/productos" className="btnShop">
+                     Explorar Productos
+                </Link>                                       
                 
-                </button>
-
             </section>
         </>
     );

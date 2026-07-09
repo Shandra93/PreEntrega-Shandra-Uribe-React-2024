@@ -1,29 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { db } from '../data/firebase';
-import { doc, getDoc } from 'firebase/firestore';
-import ProductDetail from './ProductDetail'; 
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const ProductDetailContainer = () => {
-  const { id } = useParams();
-  const [producto, setProducto] = useState(null);
+import ProductDetail from "./ProductDetail";
+import { getProductById } from "../services/firebase/productsService";
 
-  useEffect(() => {
-    const fetchProducto = async () => {
-      try {
-        const productoDoc = doc(db, 'Productos', id);
-        const productoSnapshot = await getDoc(productoDoc);
-        if (productoSnapshot.exists()) {
-          setProducto({ id: productoSnapshot.id, ...productoSnapshot.data() });
+export default function ProductDetailContainer() {
+    const { id } = useParams();
+
+    const [producto, setProducto] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchProducto() {
+            try {
+                const data = await getProductById(id);
+                setProducto(data);
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setLoading(false);
+            }
         }
-      } catch (error) {
-        console.error("Error al obtener producto:", error);
-      }
-    };
-    fetchProducto();
-  }, [id]);
 
-  return producto ? <ProductDetail producto={producto} /> : <div>Producto no encontrado</div>;
-};
+        fetchProducto();
+    }, [id]);
 
-export default ProductDetailContainer;
+    if (loading) {
+        return <h2>Cargando producto...</h2>;
+    }
+
+    if (!producto) {
+        return <h2>Producto no encontrado.</h2>;
+    }
+
+    return <ProductDetail producto={producto} />;
+}

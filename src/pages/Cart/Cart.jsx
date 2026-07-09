@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useCarrito } from '../Context/CarritoContext'; 
+import { useCarrito } from '../../context/CarritoContext';
 import { useNavigate } from 'react-router-dom';
-import './Carrito.css';
+import './Cart.css';
 
-const Carrito = () => {
-  const { carrito, createOrder, removeFromCarrito } = useCarrito(); // Agrega removeFromCarrito
+const Cart = () => {
+  const { carrito, createOrder, removeFromCarrito } = useCarrito();
   const [clientInfo, setClientInfo] = useState({ name: '', email: '', phone: '' });
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -17,9 +17,16 @@ const Carrito = () => {
     e.preventDefault();
     if (clientInfo.name && clientInfo.email && clientInfo.phone) {
       await createOrder(clientInfo);
-      navigate('/purchaseSummary', { state: { buyer: clientInfo, items: carrito, total: carrito.reduce((total, item) => total + item.price * item.quantity, 0) } });
-    } else {
-      alert('Por favor, completa todos los campos.');
+      navigate('/checkout', {
+        state: {
+          buyer: clientInfo,
+          items: carrito,
+          total: carrito.reduce(
+            (total, item) => total + item.price * item.quantity,
+            0
+          ),
+        },
+      });
     }
   };
 
@@ -72,4 +79,4 @@ const Carrito = () => {
   );
 };
 
-export default Carrito;
+export default Cart;

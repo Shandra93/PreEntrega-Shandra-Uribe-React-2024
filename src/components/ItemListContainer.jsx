@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../data/firebase';
+import { db } from '../services/firebase/firebase';
+import ProductCard from "./ProductCard/ProductCard";
 import './ItemListContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ProductCard from "./ProductCard/ProductCard";
 
 export default function ItemListContainer() {
   const [productos, setProductos] = useState([]);
@@ -30,13 +32,11 @@ export default function ItemListContainer() {
   return (
     <div className="item-list-container">
       {productos.map((producto) => (
-        <div className="product-card" key={producto.id}>
-          <img src={producto.img} alt={producto.title} className="product-image" />
-          <h5 className="card-title">{producto.title}</h5>
-          <p className="card-text">Precio: ${producto.price}</p>
-          <Link to={`/product/${producto.id}`} className="btn-detail">Ver detalle</Link>
-        </div>
-      ))}
+    <ProductCard
+        key={producto.id}
+        producto={producto}
+    />
+))}
     </div>
   );
 }

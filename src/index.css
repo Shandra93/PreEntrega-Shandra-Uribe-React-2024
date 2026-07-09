@@ -1,3 +1,7 @@
+@import "./styles/theme.css";
+@import "./styles/globals.css";
+
+
 *{
     margin:0;
     padding:0;

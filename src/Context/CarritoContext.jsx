@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
-import { db } from '../data/firebase';
+import { db } from '../services/firebase/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 
 const CarritoContext = createContext();

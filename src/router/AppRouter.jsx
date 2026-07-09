@@ -2,12 +2,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import MainLayout from "../layouts/MainLayout";
 
-import HomePage from "../pages/HomePage";
-import ProductPage from "../pages/ProductPage";
-import Nosotros from "../pages/Nosotros";
-import Carrito from "../pages/Carrito";
-import PurchaseSummary from "../pages/PurchaseSummary";
+// Pages
+import Home from "../pages/Home/Home";
+import Products from "../pages/Products/Products";
 import ProductDetailContainer from "../components/ProductDetailContainer";
+import About from "../pages/About/About";
+import Cart from "../pages/Cart/Cart";
+import Checkout from "../pages/Checkout/Checkout";
+
+// Futuras páginas
+// import Success from "../pages/Success/Success";
+// import Cancel from "../pages/Cancel/Cancel";
+// import NotFound from "../pages/NotFound/NotFound";
 
 export default function AppRouter() {
     return (
@@ -15,18 +21,23 @@ export default function AppRouter() {
             <Routes>
 
                 <Route element={<MainLayout />}>
+                    <Route index element={<Home />} />
 
-                    <Route path="/" element={<HomePage />} />
+                    <Route path="Products" element={<Products />} />
+                    <Route path="Products/:id" element={<ProductDetailContainer />} />
 
-                    <Route path="/productos" element={<ProductPage />} />
+                    <Route path="About" element={<About />} />
 
-                    <Route path="/productos/:id" element={<ProductDetailContainer />} />
+                    <Route path="Cart" element={<Cart />} />
 
-                    <Route path="/nosotros" element={<Nosotros />} />
+                    <Route path="Checkout" element={<Checkout />} />
 
-                    <Route path="/carrito" element={<Carrito />} />
+                    {/* Stripe */}
+                    {/* <Route path="checkout/success" element={<Success />} /> */}
+                    {/* <Route path="checkout/cancel" element={<Cancel />} /> */}
 
-                    <Route path="/checkout" element={<PurchaseSummary />} />
+                    {/* Página 404 */}
+                    {/* <Route path="*" element={<NotFound />} /> */}
 
                 </Route>
 
