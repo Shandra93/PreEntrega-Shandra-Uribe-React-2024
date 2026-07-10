@@ -16,203 +16,134 @@
 }
 
 /* Badge */
-
 .badge {
     position: absolute;
     top: 18px;
     left: 18px;
-
     background: #16A34A;
     color: white;
-
     padding: 6px 14px;
-
     border-radius: 30px;
-
     font-size: 12px;
     font-weight: bold;
-
     z-index: 5;
 }
 
 /* Favoritos */
-
 .favorite-btn {
-
     position: absolute;
-
     top: 18px;
     right: 18px;
-
     width: 42px;
     height: 42px;
-
     border-radius: 50%;
-
     border: none;
-
     background: white;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     box-shadow: 0 5px 15px rgba(0,0,0,.12);
-
     cursor: pointer;
-
     color: #999;
-
     transition: .3s;
-
     z-index: 5;
 }
 
 .favorite-btn:hover {
-
     color: #ef4444;
-
     transform: scale(1.15);
 }
 
 /* Imagen */
-
 .product-image-container {
-
     height: 230px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 30px;
 }
 
 .product-image {
-
     max-width: 100%;
     max-height: 180px;
-
     object-fit: contain;
-
     transition: .35s;
 }
 
 .product-card:hover .product-image {
-
     transform: scale(1.08);
 }
 
 /* Información */
-
 .product-info {
-
     padding: 20px;
-
     display: flex;
     flex-direction: column;
-
     gap: 12px;
 }
 
 /* Nombre */
-
 .product-info h3 {
-
     font-size: 1.15rem;
-
     color: #222;
-
     min-height: 55px;
 }
-
 /* Rating */
 
 .rating {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     gap: 4px;
-
     color: #FBBF24;
-
     font-size: .95rem;
 }
 
 .rating span {
-
     color: #777;
-
     margin-left: 6px;
 }
 
 /* Precio */
 
 .price {
-
     font-size: 30px;
-
     font-weight: 700;
-
     color: #2563EB;
-
     text-align: center;
 }
 
 /* Botón carrito */
 
 .btn-cart {
-
     width: 100%;
-
     padding: 14px;
-
     border: none;
-
     border-radius: 12px;
-
     background: linear-gradient(135deg,#2563EB,#3B82F6);
-
     color: white;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     gap: 10px;
-
     font-weight: 600;
-
     transition: .3s;
 }
 
 .btn-cart:hover {
-
     transform: translateY(-2px);
-
     box-shadow: 0 10px 20px rgba(37,99,235,.25);
 }
 
 /* Link */
 
 .btn-detail {
-
     text-align: center;
-
     color: #2563EB;
-
     font-weight: 600;
-
     transition: .3s;
 }
 
 .btn-detail:hover {
-
     letter-spacing: .5px;
 }

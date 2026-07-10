@@ -1,49 +1,243 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import './Checkout.css';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FaArrowLeft, FaCreditCard, FaLock, FaUser } from "react-icons/fa";
+import toast from "react-hot-toast";
 
-const PurchaseSummary = () => {
-  const location = useLocation();
-  const { buyer, items, total } = location.state || {}; 
-  const orderNumber = Math.floor(Math.random() * 1000000); 
+import { useCarrito } from "../../context/CarritoContext";
+import { createCheckoutSession } from "../../services/stripe/checkoutService";
+import "./Checkout.css";
 
-  return (
-    <div className="purchase-summary-container">
-      <h1>Resumen de Compra</h1>
-      
-      <div className="buyer-info">
-        <h2>Datos del comprador</h2>
-        <p><strong>Nombre:</strong> {buyer.name}</p>
-        <p><strong>Email:</strong> {buyer.email}</p>
-        <p><strong>Teléfono:</strong> {buyer.phone}</p>
-      </div>
+export default function PurchaseSummary() {
+    const navigate = useNavigate();
+    const { carrito } = useCarrito();
 
-      <div className="items-summary">
-        <h2>Productos comprados:</h2>
-        <ul>
-          {items.map((item, index) => (
-            <li key={index} className="item">
-              <img src={item.img} alt={item.name} className="item-image" />
-              <div className="item-details">
-                <p><strong>{item.name}</strong></p>
-                <p>Cantidad: {item.quantity}</p>
-                <p>Precio: ${item.price * item.quantity}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+    const [clientInfo, setClientInfo] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+        city: "",
+        zipCode: "",
+    });
 
-      <div className="total-price">
-        <h2>Total a pagar: ${total}</h2>
-      </div>
+    const subtotal = carrito.reduce(
+        (total, item) => total + Number(item.price) * item.quantity,
+        0
+    );
 
-      <div className="order-info">
-        <p>Tu fecha de envío será de 3 - 5 días después de la compra.</p>
-        <p><strong>Número de pedido:</strong> {orderNumber}</p>
-      </div>
-    </div>
-  );
-};
+    const envio = subtotal > 0 ? 99 : 0;
+    const total = subtotal + envio;
 
-export default PurchaseSummary;
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+
+        setClientInfo((prevClientInfo) => ({
+            ...prevClientInfo,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const fieldsAreComplete = Object.values(clientInfo).every(
+            (value) => value.trim() !== ""
+        );
+
+        if (!fieldsAreComplete) {
+            toast.error("Completa todos los campos para continuar");
+            return;
+        }
+
+        if (carrito.length === 0) {
+            toast.error("Tu carrito está vacío");
+            navigate("/productos");
+            return;
+        }
+
+        try {
+            toast.loading("Redirigiendo a Stripe...", {
+                id: "stripe-loading",
+            });
+
+            const data = await createCheckoutSession(carrito, clientInfo);
+
+            toast.dismiss("stripe-loading");
+
+            window.location.href = data.url;
+        } catch (error) {
+            console.error(error);
+            toast.dismiss("stripe-loading");
+            toast.error(error.message || "No se pudo iniciar Stripe Checkout");
+        }
+    };
+
+    if (carrito.length === 0) {
+        return (
+            <main className="checkout-page">
+                <section className="checkout-empty">
+                    <h1>No hay productos para pagar</h1>
+
+                    <p>
+                        Agrega productos a tu carrito antes de continuar al checkout.
+                    </p>
+
+                    <Link to="/productos" className="checkout-primary-link">
+                        Explorar productos
+                    </Link>
+                </section>
+            </main>
+        );
+    }
+
+    return (
+        <main className="checkout-page">
+            <section className="checkout-header">
+                <div>
+                    <span>Checkout seguro</span>
+                    <h1>Finaliza tu compra</h1>
+                </div>
+
+                <Link to="/carrito" className="checkout-back-link">
+                    <FaArrowLeft />
+                    Volver al carrito
+                </Link>
+            </section>
+
+            <section className="checkout-layout">
+                <form className="checkout-form" onSubmit={handleSubmit}>
+                    <div className="checkout-form-title">
+                        <FaUser />
+
+                        <div>
+                            <h2>Datos del cliente</h2>
+                            <p>Ingresa tus datos para continuar con Stripe.</p>
+                        </div>
+                    </div>
+
+                    <div className="form-grid">
+                        <div className="form-group">
+                            <label>Nombre completo</label>
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Ej. Shandra Uribe"
+                                value={clientInfo.name}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label>Correo electrónico</label>
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="correo@email.com"
+                                value={clientInfo.email}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label>Teléfono</label>
+                            <input
+                                type="tel"
+                                name="phone"
+                                placeholder="55 1234 5678"
+                                value={clientInfo.phone}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label>Código postal</label>
+                            <input
+                                type="text"
+                                name="zipCode"
+                                placeholder="00000"
+                                value={clientInfo.zipCode}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+
+                        <div className="form-group full">
+                            <label>Dirección</label>
+                            <input
+                                type="text"
+                                name="address"
+                                placeholder="Calle, número, colonia"
+                                value={clientInfo.address}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+
+                        <div className="form-group full">
+                            <label>Ciudad</label>
+                            <input
+                                type="text"
+                                name="city"
+                                placeholder="Ciudad"
+                                value={clientInfo.city}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="checkout-security">
+                        <FaLock />
+                        <span>
+                            El pago se procesará de forma segura con Stripe.
+                        </span>
+                    </div>
+
+                    <button className="checkout-submit-button" type="submit">
+                        <FaCreditCard />
+                        Pagar con Stripe
+                    </button>
+                </form>
+
+                <aside className="checkout-summary">
+                    <h2>Resumen del pedido</h2>
+
+                    <div className="checkout-items">
+                        {carrito.map((item) => (
+                            <div className="checkout-item" key={item.id}>
+                                <img src={item.img} alt={item.title} />
+
+                                <div>
+                                    <h3>{item.title}</h3>
+                                    <p>Cantidad: {item.quantity}</p>
+                                </div>
+
+                                <strong>
+                                    ${Number(item.price) * item.quantity}
+                                </strong>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="checkout-summary-divider" />
+
+                    <div className="checkout-row">
+                        <span>Subtotal</span>
+                        <strong>${subtotal}</strong>
+                    </div>
+
+                    <div className="checkout-row">
+                        <span>Envío</span>
+                        <strong>${envio}</strong>
+                    </div>
+
+                    <div className="checkout-total">
+                        <span>Total</span>
+                        <strong>${total}</strong>
+                    </div>
+
+                    <p className="stripe-note">
+                        Serás redirigida a Stripe para completar el pago.
+                    </p>
+                </aside>
+            </section>
+        </main>
+    );
+}

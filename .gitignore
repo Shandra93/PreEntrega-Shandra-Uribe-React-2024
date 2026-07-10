@@ -23,6 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .env
+backend/.env
+backend/serviceAccountKey.json
 
 node_modules/
 #/firebase.jsx

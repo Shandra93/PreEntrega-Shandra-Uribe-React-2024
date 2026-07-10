@@ -1,0 +1,78 @@
+.checkout-cancel-page {
+    min-height: 80vh;
+    width: min(1200px, calc(100% - 2rem));
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-cancel-card {
+    width: min(650px, 100%);
+    padding: 3rem;
+
+    text-align: center;
+
+    border-radius: 32px;
+
+    background:
+        radial-gradient(circle at top right, rgba(239,68,68,.2), transparent 35%),
+        linear-gradient(135deg, #020617, #0f172a);
+
+    color: white;
+
+    box-shadow: 0 30px 80px rgba(2, 6, 23, 0.4);
+}
+
+.cancel-icon {
+    font-size: 5rem;
+    color: #ef4444;
+    margin-bottom: 1.5rem;
+}
+
+.checkout-cancel-card h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: 1rem;
+}
+
+.checkout-cancel-card p {
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+.cancel-actions {
+    margin-top: 2rem;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cancel-primary-btn,
+.cancel-secondary-btn {
+    padding: 1rem 1.5rem;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+    font-weight: 900;
+
+    transition: 0.3s;
+}
+
+.cancel-primary-btn {
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    color: white;
+}
+
+.cancel-secondary-btn {
+    background: white;
+    color: #020617;
+}
+
+.cancel-primary-btn:hover,
+.cancel-secondary-btn:hover {
+    transform: translateY(-3px);
+}

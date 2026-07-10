@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaCreditCard, FaLock, FaUser } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { createCheckoutSession } from "../../services/stripe/checkoutService";
 
 import { useCarrito } from "../../context/CarritoContext";
 import "./PurchaseSummary.css";
@@ -36,40 +37,40 @@ export default function PurchaseSummary() {
         });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        const fieldsAreComplete = Object.values(clientInfo).every(
-            (value) => value.trim() !== ""
-        );
+    const fieldsAreComplete = Object.values(clientInfo).every(
+        (value) => value.trim() !== ""
+    );
 
-        if (!fieldsAreComplete) {
-            toast.error("Completa todos los campos para continuar");
-            return;
-        }
+    if (!fieldsAreComplete) {
+        toast.error("Completa todos los campos para continuar");
+        return;
+    }
 
-        if (carrito.length === 0) {
-            toast.error("Tu carrito está vacío");
-            navigate("/products");
-            return;
-        }
+    if (carrito.length === 0) {
+        toast.error("Tu carrito está vacío");
+        navigate("/productos");
+        return;
+    }
 
-        try {
-            await createOrder(clientInfo);
+    try {
+        toast.loading("Redirigiendo a Stripe...", {
+            id: "stripe-loading",
+        });
 
-            toast.success("Orden creada correctamente");
+        const data = await createCheckoutSession(carrito, clientInfo);
 
-            navigate("/", {
-                state: {
-                    buyer: clientInfo,
-                    total,
-                },
-            });
-        } catch (error) {
-            console.error(error);
-            toast.error("No se pudo crear la orden");
-        }
-    };
+        toast.dismiss("stripe-loading");
+
+        window.location.href = data.url;
+    } catch (error) {
+        console.error(error);
+        toast.dismiss("stripe-loading");
+        toast.error(error.message || "No se pudo iniciar Stripe Checkout");
+    }
+};
 
     if (carrito.length === 0) {
         return (
@@ -118,7 +119,7 @@ export default function PurchaseSummary() {
                             <input
                                 type="text"
                                 name="name"
-                                placeholder="Ej. Shandra Uribe"
+                                placeholder="Ej. John Doe"
                                 value={clientInfo.name}
                                 onChange={handleInputChange}
                             />
@@ -189,7 +190,7 @@ export default function PurchaseSummary() {
 
                     <button className="checkout-submit-button" type="submit">
                         <FaCreditCard />
-                        Crear orden
+                        Pagar con Stripe
                     </button>
                 </form>
 

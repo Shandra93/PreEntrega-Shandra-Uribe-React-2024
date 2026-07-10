@@ -1,0 +1,100 @@
+.checkout-success-page {
+    min-height: 80vh;
+    width: min(1200px, calc(100% - 2rem));
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-success-card {
+    width: min(650px, 100%);
+    padding: 3rem;
+
+    text-align: center;
+
+    border-radius: 32px;
+
+    background:
+        radial-gradient(circle at top right, rgba(34,197,94,.2), transparent 35%),
+        linear-gradient(135deg, #020617, #0f172a);
+
+    color: white;
+
+    box-shadow: 0 30px 80px rgba(2, 6, 23, 0.4);
+}
+
+.success-icon {
+    font-size: 5rem;
+    color: #22c55e;
+    margin-bottom: 1.5rem;
+}
+
+.checkout-success-card h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: 1rem;
+}
+
+.checkout-success-card p {
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+.order-box {
+    margin: 2rem auto;
+    padding: 1rem;
+
+    border-radius: 18px;
+
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.order-box span {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.order-box strong {
+    color: #38bdf8;
+    font-size: 1.1rem;
+}
+
+.success-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.success-primary-btn,
+.success-secondary-btn {
+    padding: 1rem 1.5rem;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+    font-weight: 900;
+
+    transition: 0.3s;
+}
+
+.success-primary-btn {
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    color: white;
+}
+
+.success-secondary-btn {
+    background: white;
+    color: #020617;
+}
+
+.success-primary-btn:hover,
+.success-secondary-btn:hover {
+    transform: translateY(-3px);
+}

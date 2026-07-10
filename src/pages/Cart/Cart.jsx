@@ -8,7 +8,7 @@ export default function Cart() {
     const navigate = useNavigate();
 
     const subtotal = carrito.reduce(
-        (total, item) => total + item.price * item.quantity,
+        (total, item) => total + Number(item.price) * item.quantity,
         0
     );
 
@@ -31,6 +31,7 @@ export default function Cart() {
             <main className="cart-page">
                 <section className="cart-empty-page">
                     <h1>Tu carrito está vacío</h1>
+
                     <p>
                         Agrega productos a tu carrito y vuelve aquí para finalizar tu compra.
                     </p>
@@ -60,7 +61,7 @@ export default function Cart() {
             <section className="cart-layout">
                 <div className="cart-products">
                     {carrito.map((item) => {
-                        const itemSubtotal = item.price * item.quantity;
+                        const itemSubtotal = Number(item.price) * item.quantity;
 
                         return (
                             <article className="cart-item" key={item.id}>
@@ -83,6 +84,7 @@ export default function Cart() {
                                     className="cart-remove-button"
                                     onClick={() => removeFromCarrito(item.id)}
                                     aria-label="Eliminar producto"
+                                    type="button"
                                 >
                                     <FaTrash />
                                 </button>
@@ -114,6 +116,7 @@ export default function Cart() {
                     <button
                         className="checkout-button"
                         onClick={handleGoToCheckout}
+                        type="button"
                     >
                         <FaCreditCard />
                         Ir a checkout
@@ -122,6 +125,7 @@ export default function Cart() {
                     <button
                         className="clear-cart-button"
                         onClick={clearCarrito}
+                        type="button"
                     >
                         Vaciar carrito
                     </button>
